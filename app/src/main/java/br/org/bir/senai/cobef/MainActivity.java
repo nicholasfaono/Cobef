@@ -7,20 +7,30 @@ import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
-    private String[] mDrawerTitles;
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
+    private ExpandableListView mExpandableListView;
+    private List<String> mGroupList;
+    private HashMap<String, List<String>> mChildList;
+    private HashMap<String, Integer> mItemIndex;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,33 +38,80 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         mTitle = mDrawerTitle = getTitle();
-
-        mDrawerTitles = getResources().getStringArray(R.array.left_menu_titles);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
-        setupDrawerList();
+
         setupDrawerToggle();
 
-        mDrawerList.setSelection(0);
-        selectItem(0);
+        prepareListData();
+        setupExpandableListView();
 
+
+        mExpandableListView = (ExpandableListView)findViewById(R.id.expandable_list_view);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
     }
 
-    private void setupDrawerList() {
-        mDrawerList = (ListView)findViewById(R.id.left_drawer);
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mDrawerTitles));
+    private void setupExpandableListView() {
+        final ExplandableListAdapter adapter = new ExplandableListAdapter(this, mGroupList, mChildList);
 
-        mDrawerList.setOnItemClickListener(new ListView.OnItemClickListener()
-        {
+        mExpandableListView = (ExpandableListView)findViewById(R.id.expandable_list_view);
+        mExpandableListView.setAdapter(adapter);
+
+        mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+
+                if (adapter.getChildrenCount(groupPosition) == 0){
+                    String item = (String)adapter.getGroup(groupPosition);
+                    selectItem(mItemIndex.get(item), item, groupPosition, -1);
+                }
+
+                return false;
             }
         });
+
+        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+                @Override
+                public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                    String item = (String)adapter.getChild(groupPosition, childPosition);
+                    selectItem(mItemIndex.get(item), item, groupPosition, childPosition);
+                    return false;
+                }
+            }
+        );
+    }
+
+    private void prepareListData() {
+        mGroupList = new ArrayList<String>();
+        mChildList = new HashMap<String, List<String>>();
+        mItemIndex = new HashMap<String, Integer>();
+
+        String[] titles = getResources().getStringArray(R.array.left_menu_titles);
+        String[] aboutChildren = getResources().getStringArray(R.array.about_children);
+        String[] programChildren = getResources().getStringArray(R.array.programs_children);
+
+        mGroupList.addAll(Arrays.asList(titles));
+
+        mChildList.put(getString(R.string.about), Arrays.asList(aboutChildren));
+        mChildList.put(getString(R.string.programs), Arrays.asList(programChildren));
+
+        int idx = 0;
+        for (String item : mGroupList){
+
+            if (mChildList.containsKey(item)){
+                List<String> subitems = mChildList.get(item);
+                for (String subitem : subitems){
+                    mItemIndex.put(subitem, idx++);
+                }
+            }
+            else {
+                mItemIndex.put(item, idx++);
+            }
+        }
     }
 
     private void setupDrawerToggle() {
@@ -105,19 +162,18 @@ public class MainActivity extends Activity {
         getActionBar().setTitle(mTitle);
     }
 
-    private void selectItem(int position) {
+    private void selectItem(int index, String title, int groupPosition, int childPosition) {
 
         Fragment fragment = new PageFragment();
 
         Bundle args = new Bundle();
-        args.putInt(PageFragment.ARG_PAGE_INDEX, position);
+        args.putInt(PageFragment.ARG_PAGE_INDEX, index);
         fragment.setArguments(args);
 
         FragmentManager fragmentManger = getFragmentManager();
         getFragmentManager().beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        mDrawerList.setItemChecked(position, true);
-        setTitle(mDrawerTitles[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+        setTitle(title);
+        mDrawerLayout.closeDrawer(mExpandableListView);
     }
 }

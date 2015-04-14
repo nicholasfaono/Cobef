@@ -10,6 +10,7 @@
         android:layout_height="match_parent"/>
 
 
+    <!--
     <ListView
         android:id="@+id/left_drawer"
         android:layout_width="@dimen/left_drawer_layout_width"
@@ -19,5 +20,18 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         android:background="#111"/>
+        -->
+
+    <ExpandableListView
+        android:id="@+id/expandable_list_view"
+        android:layout_height="match_parent"
+        android:layout_width="@dimen/left_drawer_layout_width"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:groupIndicator="@null"
+        android:dividerHeight="0dp"
+        android:background="#111"/>
+
 
 </android.support.v4.widget.DrawerLayout>
