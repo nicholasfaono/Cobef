@@ -52,6 +52,9 @@ public class MainActivity extends Activity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+
+        mExpandableListView.setSelectedGroup(0);
+        selectItem(0, getString(R.string.start), 0, -1);
     }
 
     private void setupExpandableListView() {
