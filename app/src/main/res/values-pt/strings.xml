@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cobef</string>
-    <string name="inicio">Início</string>
-    <string name="sobre">Sobre</string>
-    <string name="novidade">Novidades</string>
-    <string name="programacao">Programação</string>
-    <string name="organizacao">Organização</string>
-    <string name="informacoes">Informações</string>
-    <string name="desenvolvedor">Desenvolvedor</string>
+    <string name="start">Início</string>
+    <string name="about">Sobre</string>
+    <string name="news">Novidades</string>
+    <string name="programs">Programação</string>
+    <string name="organization">Organização</string>
+    <string name="informations">Informações</string>
+    <string name="sponsors">Patrocinadores</string>
+    <string name="developer">Desenvolvedor</string>
 
 
-    <string-array name="inicio_filho">
+    <string-array name="about_children">
         <item>Apresentação</item>
         <item>Histórico</item>
     </string-array>
 
-    <string-array name="programacao_filho">
+    <string-array name="programs_children">
         <item>Datas Importantes</item>
         <item>Programação Preliminar</item>
     </string-array>
 
-    <string name="inicio_url">file:///android_asset/inicio.html</string>
-    <string name="apresentacao_url">file:///android_asset/apresentacao.html</string>
-    <string name="historico_url">file:///android_asset/historico.html</string>
-    <string name="novidade_url">file:///android_asset/novidade.html</string>
-    <string name="datas_importantes">file:///android_asset/datas_importantes.html</string>
-    <string name="programacao_preliminar">file:///android_asset/programacao_preliminar.html</string>
-    <string name="organizacao_url">file:///android_asset/organizacao.html</string>
-    <string name="desenvolvedor_url">file:///android_asset/desenvolvedor.html</string>
+    <string name="start_url">file:///android_asset/inicio.html</string>
+    <string name="presentation_url">file:///android_asset/apresentacao.html</string>
+    <string name="historic_url">file:///android_asset/historico.html</string>
+    <string name="news_url">file:///android_asset/novidade.html</string>
+    <string name="important_dates">file:///android_asset/datas_importantes.html</string>
+    <string name="first_program">file:///android_asset/programacao_preliminar.html</string>
+    <string name="organization_url">file:///android_asset/organizacao.html</string>
+    <string name="sponsors_url">file:///android_asset/patrocinadores.html</string>
+    <string name="desenvoloper_url">file:///android_asset/desenvolvedor.html</string>
 
     <string-array name="left_menu_titles">
-        <item>@string/inicio</item>
-        <item>@string/sobre</item>
-        <item>@string/novidade</item>
-        <item>@string/programacao</item>
-        <item>@string/organizacao</item>
-        <item>@string/desenvolvedor</item>
+        <item>@string/start</item>
+        <item>@string/about</item>
+        <item>@string/news</item>
+        <item>@string/programs</item>
+        <item>@string/organization</item>
+        <item>@string/sponsors</item>
+        <item>@string/developer</item>
     </string-array>
 
     <string-array name="page_urls">
-        <item>@string/inicio_url</item>
-        <item>@string/apresentacao_url</item>
-        <item>@string/historico_url</item>
-        <item>@string/novidade_url</item>
-        <item>@string/datas_importantes</item>
-        <item>@string/programacao_preliminar</item>
-        <item>@string/organizacao_url</item>
-        <item>@string/desenvolvedor_url</item>
+        <item>@string/start_url</item>
+        <item>@string/presentation_url</item>
+        <item>@string/historic_url</item>
+        <item>@string/news_url</item>
+        <item>@string/important_dates</item>
+        <item>@string/first_program</item>
+        <item>@string/organization_url</item>
+        <item>@string/sponsors_url</item>
+        <item>@string/developer_url</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>

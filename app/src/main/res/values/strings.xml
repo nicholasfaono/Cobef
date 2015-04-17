@@ -1,21 +1,22 @@
 <resources>
     <string name="app_name">Cobef</string>
-    <string name="start">Start</string>
+    <string name="start">Home</string>
     <string name="about">About</string>
     <string name="news">News</string>
     <string name="programs">Programs</string>
     <string name="organization">Organization</string>
     <string name="informations">Informations</string>
+    <string name="sponsors">Sponsors</string>
     <string name="developer">Developer</string>
 
     <string-array name="about_children">
-        <item>Presentation</item>
-        <item>Historic</item>
+        <item>    Presentation</item>
+        <item>    Historic</item>
     </string-array>
 
     <string-array name="programs_children">
-        <item>Important Dates</item>
-        <item>First program</item>
+        <item>    Important Dates</item>
+        <item>    Preliminary Program</item>
     </string-array>
 
     <string name="start_url">file:///android_asset/start.html</string>
@@ -25,6 +26,7 @@
     <string name="important_dates">file:///android_asset/important_dates.html</string>
     <string name="first_program">file:///android_asset/first_program.html</string>
     <string name="organization_url">file:///android_asset/organization.html</string>
+    <string name="sponsors_url">file:///android_asset/sponsors.html</string>
     <string name="developer_url">file:///android_asset/developer.html</string>
 
     <string-array name="left_menu_titles">
@@ -33,6 +35,7 @@
         <item>@string/news</item>
         <item>@string/programs</item>
         <item>@string/organization</item>
+        <item>@string/sponsors</item>
         <item>@string/developer</item>
     </string-array>
 
@@ -44,6 +47,7 @@
         <item>@string/important_dates</item>
         <item>@string/first_program</item>
         <item>@string/organization_url</item>
+        <item>@string/sponsors_url</item>
         <item>@string/developer_url</item>
     </string-array>
 

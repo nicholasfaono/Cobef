@@ -67,9 +67,9 @@ strong{
 }
 
 #logo{
-	width: 255px;
+	width: device-width;
 	height: 110px;
-	float:center;
+	float:top;
 }
 
 #logotxt{
@@ -160,7 +160,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6c6d1', end
 }
 
 #slide2 {
-	height: 33px;
+    margin-top: -1px;
+	height: 34px;
 	-webkit-animation: movingbox2 8s forwards; /* Safari 4+ */
 	-moz-animation: movingbox2 8s forwards; /* Fx 5+ */
 	-o-animation: movingbox2 8s forwards; /* Opera 12+ */
@@ -532,13 +533,13 @@ filter:alpha(opacity=100); /* For IE8 and earlier */
 @-webkit-keyframes movingbox14{
   0%{left:0%; width: 100%;}
   50%{left:85%; width: 15%;}
-  100%{left:9%; width: 91%; }
+  100%{left:7%; width: 93%; }
 }
 
 @keyframes movingbox14{
   0%{left: 0%; width: 100%;}
   50%{left:85%; width: 15%;}
-  100%{left:9%; width: 91%; }
+  100%{left:7%; width: 93%; }
 }
 
 .pArea{
@@ -583,7 +584,7 @@ background: #f5f5f5;
 	}
 	
 #rodape{
-	width: 100%;
+	width: device-width;
 	height: 100px;
 	border-top: 1px solid rgba(215, 30, 37, 1);
 	padding-top:5px;
@@ -851,4 +852,14 @@ background: #f5f5f5;
   }
 }*/
 
+input.buttonweekday {
+    width: 18.5%;
+  height: 30px;
+  background-color: #BDBDBD;
+  -webkit-border-radius: 15px;
+  padding: 3px;
+}
 
+input.buttonweekday:hover {
+    background-color: #424242;
+}
