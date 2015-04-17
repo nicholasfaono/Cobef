@@ -29,7 +29,7 @@
     <string name="first_program">file:///android_asset/programacao_preliminar.html</string>
     <string name="organization_url">file:///android_asset/organizacao.html</string>
     <string name="sponsors_url">file:///android_asset/patrocinadores.html</string>
-    <string name="desenvoloper_url">file:///android_asset/desenvolvedor.html</string>
+    <string name="developer_url">file:///android_asset/desenvolvedor.html</string>
 
     <string-array name="left_menu_titles">
         <item>@string/start</item>
